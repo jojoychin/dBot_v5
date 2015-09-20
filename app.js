@@ -8,7 +8,7 @@ var Parse = require('node-parse-api').Parse;
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var sentiment = require('sentiment');
-var port = 9000;
+var port = process.env.PORT || 9000;
 var messageArray = [];
 var choicesFunc = [];
 
