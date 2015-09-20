@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div id="app">
+		<div id="container">
+			<div class="title">
+			</div>
+
+			<div class="chat-log">
+				<div class="server-msg" id="server-message">
+				<button id="feedBtn">FEED</button>
+				<!-- <div class="Messages"> < Submit </div> -->
+				<div class="Middle">the dBot</div>
+				<div class="Details"></div>
+					<!-- Some message from server... -->
+				</div>
+
+				<div id="chat-container">
+					<div id="messages-container">
+					<!-- Hey hey -->
+					</div>
+				</div>
+			</div>
+
+			<div id="chat-input">
+
+				<div class="left">
+					<!-- <div id="completeMe"></div> -->
+					<div id="js-ipt-text"></div>
+				</div>
+
+				<div class="right">
+					<button id="js-btn-send">SEND</button>
+				</div>
+				<!-- return to normal flow -->
+				<div class="clearfix">
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Template for submission pop-up -->
+	<script type="text/html" id="tpl_submissions">
+	<button id="closeBtn">x</button>
+	<div id = "submissionBlock">
+	<h1>SUBMIT DOUCHEY QUOTES</h1>
+	<h4><i>Tell us the douchy things that guys have said to you. We'll be continuously adding them to dBot's vocabulary.</i></h5>
+	<h5>what he said: </h4>
+	<input type="text" placeholder="what he said" id="heSaid">
+	<h5>what i said back: </h5>
+	<input type="text" placeholder="what I said" id="iSaid">
+	<br>
+	<br>
+	<button id="inputBtn">Submit</button>
+	</div>
+	<!-- return to normal flow -->
+	<div class="clearfix"></div>
+	</script>
+
+	<!-- Underscore template message-->
+	<script id="tpl-bot-chat" type="text/html">
+		<div class="bot-chat" id= <%= data.itemName %> >
+			
+			<div class="left">
+				 <div class="user">
+				 <img src="/img/male.jpg" height="50px" width="50px">
+				 </div>
+			</div>
+
+			<div class="right">
+					<div class="messageText">
+				<%= data.msg %>
+				</div>
+			</div>
+
+			<!-- return to normal flow -->
+			<div class="clearfix">
+			</div>
+		</div>
+	</script>
+
+<!-- Underscore template message image
+	// <script id="tpl-chat-image" type="text/html">
+	// 	<div class="chat-item" id= <%= data.itemName %> >
+
+	// 		<div class="left">
+	// 			<div class="user">
+	// 				<img src= "https://scontent-lga.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/59463_733903369602_6127818_n.jpg?oh=b096481ee00366cfcc2ae3f689b273e2&oe=55D6B249" width="50px" height="50px">
+	// 			</div>
+	// 			</div>
+	// 		<div class="right">
+	// 				<div class="messageText">
+	// 			<%= data %>
+	// 			</div>
+	// 		</div>
+	// 		</div>
+	// 		return to normal flow 
+	// 		<div class="clearfix">
+	// 		</div>
+	// 	</div>
+	// </script> 
+-->
+
+<!-- Underscore template choice made-->
+	<script id="tpl-user-chat" type="text/html">
+		<div class="user-chat" id= <%= response %> > 
+			<div class="left">
+				<div class="response">
+<!-- 				<ul>
+					<li class= "choice"> -->
+					<%= response %>
+<!-- 					</li>
+				</ul> -->
+				</div>
+			</div>
+			<div class="right">
+			<div class="user">
+			<img src="img/woman.png" height="60px" width="60px">
+				</div>
+			</div>
+
+			<!-- return to normal flow -->
+			<div class="clearfix">
+			</div>
+		</div>
+	</script>
+
+	<!-- Server Message template -->
+	<script id="tpl-server-message" type="text/html">
+		<div class="server-message">
+					<%= data.msg %>
+		</div>
+	</script>
+
+	<!-- ADD THIS LIBRARY FOR SOCKET.IO -->
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/complete.ly.1.0.1.min.js"></script>
+	<script type="text/javascript" src="js/underscore.min.js">
+	</script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
